@@ -4,15 +4,20 @@
 <div class="uk-container uk-padding">
 
   <h1>Nieruchomości</h1>
-<!--  <img src="../../assets/room2.jpg" alt="">-->
+  <!--  <img src="../../assets/room2.jpg" alt="">-->
   <div *ngFor="let home of homes$ | async">
-
-<!--    <img [src]="home.img"/>-->
-    <img src="{{home.img}}" alt="">
-
-        {{home.type}}/{{home.location}}
-
-
-    {{home.title}}
+    <div class="uk-card">
+      <div class="uk-card-media-top">
+        <img src="{{home.img}}" alt="">
+      </div>
+      <div class="uk-card-body">
+        <div>
+          {{home.type}}/{{home.location}}
+        </div>
+        <div>
+          {{home.title}}
+        </div>
+      </div>
+    </div>
   </div>
 </div>

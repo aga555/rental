@@ -3,44 +3,44 @@
 
   {
     "img" : "../../assets/img/room2.jpg",
-    "type": "Apartment",
+    "type": "Apartament",
     "location": "Katowice ",
     "title": "Apratement "
   },
   {
-    "img": "../../assets/img/apartament.jpg",
-    "type": "Apartment",
+    "img": "../../assets/img/flat.jpg",
+    "type": "Apartament",
     "location": "Warszawa ",
-    "title": "Apratement w centrum stolicy "
+    "title": "Przytulne mieszkanie w przyjaznej okolicy "
   },
   {
     "img": "../../assets/img/house.jpg",
-    "type": "house",
+    "type": "dom",
     "location": "Poznań",
     "title": "Uroczy domek pod miastem"
   },
   {
-    "img": "../../assets/img/room.jpg",
-    "type": "room",
-    "location": "Kraków",
-    "title": "Pokój dla studentów "
+    "img": "../../assets/img/room3.jpg",
+    "type": "mieszkanie",
+    "location": "Katowice",
+    "title": "Pokój dla studentki/studenta"
   },
   {
-    "img": "../../assets/img/apartament.jpg",
-    "type": "Apartment",
+    "img": "../../assets/img/flat2.jpg",
+    "type": "Apartament",
     "location": "Warszawa ",
-    "title": "Apratement w centrum stolicy "
+    "title": "Mieskzanie z widokiem na centrum "
   },
   {
-    "img": "../../assets/house.jpg",
-    "type": "house",
+    "img": "../../assets/img/house2.jpg",
+    "type": "dom",
     "location": "Poznań",
     "title": "Uroczy domek pod miastem"
   },
   {
-    "img": "../../assets/room.jpg",
-    "type": "room",
+    "img": "../../assets/img/flat4.jpg",
+    "type": "mieszkanie",
     "location": "Kraków",
-    "title": "Pokój dla studentów "
+    "title": "Mieszkanie dla rodziny - wysoki standard"
   }
 ]
