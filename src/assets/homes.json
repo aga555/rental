@@ -1,0 +1,39 @@
+
+[
+  {
+    "image_url": "../img/apartament.jpg",
+    "type": "Apartment",
+    "location": "Warszawa ",
+    "title": "Apratement w centrum stolicy "
+  },
+  {
+    "image_url": "../img/house.jpg",
+    "type": "house",
+    "location": "Poznań",
+    "title": "Uroczy domek pod miastem"
+  },
+  {
+    "image_url": "../img/room.jpg",
+    "type": "room",
+    "location": "Kraków",
+    "title": "Pokój dla studentów "
+  },
+  {
+    "image_url": "../img/apartament.jpg",
+    "type": "Apartment",
+    "location": "Warszawa ",
+    "title": "Apratement w centrum stolicy "
+  },
+  {
+    "image_url": "../img/house.jpg",
+    "type": "house",
+    "location": "Poznań",
+    "title": "Uroczy domek pod miastem"
+  },
+  {
+    "image_url": "../img/room.jpg",
+    "type": "room",
+    "location": "Kraków",
+    "title": "Pokój dla studentów "
+  }
+]
