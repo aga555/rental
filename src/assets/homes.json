@@ -1,37 +1,44 @@
 
 [
+
   {
-    "image_url": "../img/apartament.jpg",
+    "img" : "../../assets/img/room2.jpg",
+    "type": "Apartment",
+    "location": "Katowice ",
+    "title": "Apratement "
+  },
+  {
+    "img": "../../assets/img/apartament.jpg",
     "type": "Apartment",
     "location": "Warszawa ",
     "title": "Apratement w centrum stolicy "
   },
   {
-    "image_url": "../img/house.jpg",
+    "img": "../../assets/img/house.jpg",
     "type": "house",
     "location": "Poznań",
     "title": "Uroczy domek pod miastem"
   },
   {
-    "image_url": "../img/room.jpg",
+    "img": "../../assets/img/room.jpg",
     "type": "room",
     "location": "Kraków",
     "title": "Pokój dla studentów "
   },
   {
-    "image_url": "../img/apartament.jpg",
+    "img": "../../assets/img/apartament.jpg",
     "type": "Apartment",
     "location": "Warszawa ",
     "title": "Apratement w centrum stolicy "
   },
   {
-    "image_url": "../img/house.jpg",
+    "img": "../../assets/house.jpg",
     "type": "house",
     "location": "Poznań",
     "title": "Uroczy domek pod miastem"
   },
   {
-    "image_url": "../img/room.jpg",
+    "img": "../../assets/room.jpg",
     "type": "room",
     "location": "Kraków",
     "title": "Pokój dla studentów "

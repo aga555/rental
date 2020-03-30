@@ -1,3 +1,18 @@
-<pre>
+<!--<pre>
   {{homes$ | async| json}}
-</pre>
+</pre>-->
+<div class="uk-container uk-padding">
+
+  <h1>Nieruchomości</h1>
+<!--  <img src="../../assets/room2.jpg" alt="">-->
+  <div *ngFor="let home of homes$ | async">
+
+<!--    <img [src]="home.img"/>-->
+    <img src="{{home.img}}" alt="">
+
+        {{home.type}}/{{home.location}}
+
+
+    {{home.title}}
+  </div>
+</div>
