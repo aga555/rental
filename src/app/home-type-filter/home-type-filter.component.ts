@@ -1,4 +1,4 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, EventEmitter, OnInit, Output} from '@angular/core';
 import {FormBuilder, FormGroup} from '@angular/forms';
 
 @Component({
@@ -7,6 +7,8 @@ import {FormBuilder, FormGroup} from '@angular/forms';
   styleUrls: ['./home-type-filter.component.css']
 })
 export class HomeTypeFilterComponent implements OnInit {
+
+@Output() applied= new EventEmitter()
   form: FormGroup;
 
   constructor(private formBuilder: FormBuilder) {
@@ -22,5 +24,7 @@ export class HomeTypeFilterComponent implements OnInit {
 
   submit(formValue) {
     console.log(formValue);
+    const homeTypes = Object.keys(formValue).filter(item => formValue[item]);
+    this.applied.emit(homeTypes);
   }
 }
