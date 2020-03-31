@@ -1,6 +1,6 @@
 import {Injectable} from '@angular/core';
 import {HttpClient} from '@angular/common/http';
-import {delay} from 'rxjs/operators';
+import {delay, map} from 'rxjs/operators';
 import {BehaviorSubject} from 'rxjs';
 
 @Injectable({
@@ -12,9 +12,17 @@ export class DataService {
   constructor(private httpClient: HttpClient) {
   }
 
-  loadHomes() {
+  loadHomes(homeTypeFilters) {
+    this.homes$.next([]);
     this.httpClient.get<any[]>('assets/homes.json')
-      .pipe(delay(2000))
+      .pipe(delay(2000),
+        map(homes => {
+          if (!homeTypeFilters.lenght) {
+            return homes;
+          }
+          return homes.filter(home => homeTypeFilters.includes(home.type));
+        })
+      )
       .subscribe(homes => {
         this.homes$.next(homes);
 

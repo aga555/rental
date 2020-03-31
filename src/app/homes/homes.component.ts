@@ -1,6 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {DataService} from '../data.service';
-import {Router} from '@angular/router';
+import {ActivatedRoute, Router} from '@angular/router';
 
 @Component({
   selector: 'app-homes',
@@ -13,11 +13,15 @@ export class HomesComponent implements OnInit {
 
   constructor(
     private dataService: DataService,
-    private router: Router) {
+    private router: Router,
+    private route: ActivatedRoute) {
   }
 
   ngOnInit() {
-    this.dataService.loadHomes();
+    this.route.queryParams.subscribe(params => {
+      const homeTypesFilters = params['home-type'] || [];
+      this.dataService.loadHomes(homeTypesFilters);
+    });
   }
 
   homeTypeFilterAplied($event) {
