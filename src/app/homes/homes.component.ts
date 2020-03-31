@@ -10,6 +10,7 @@ import {ActivatedRoute, Router} from '@angular/router';
 export class HomesComponent implements OnInit {
   homeTypeDropdownOpen = false;
   currentHomeTypeFilter = [];
+  currentSearch = '';
   homes$ = this.dataService.homes$;
 
   constructor(
@@ -24,6 +25,7 @@ export class HomesComponent implements OnInit {
       const searchString = params.search || '';
       this.dataService.loadHomes(homeTypesFilters, searchString);
       this.currentHomeTypeFilter = homeTypesFilters;
+      this.currentSearch = searchString;
     });
   }
 
