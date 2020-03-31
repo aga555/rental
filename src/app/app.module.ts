@@ -5,6 +5,7 @@ import {HomesComponent} from './homes/homes.component';
 import {AppRoutingModule} from './app-routing.module';
 import {HttpClientModule} from '@angular/common/http';
 import { HomeTypeFilterComponent } from './home-type-filter/home-type-filter.component';
+import {ReactiveFormsModule} from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -15,7 +16,8 @@ import { HomeTypeFilterComponent } from './home-type-filter/home-type-filter.com
   imports: [
     BrowserModule,
     AppRoutingModule,
-    HttpClientModule
+    HttpClientModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -1,13 +1,20 @@
-<form>
+<form [formGroup]="form" (submit)="submit(form.value)" >
   <div uk-grid class="uk-child-width-1-1">
     <label>
-      <input class="uk-checkbox" type="checkbox">Apartament
+      <input class="uk-checkbox"
+             type="checkbox"
+             [formControlName]="'Apartment'"
+      >Apartment
     </label>
     <label>
-      <input class="uk-checkbox" type="checkbox">Mieszkanie
+      <input class="uk-checkbox" type="checkbox"
+             [formControlName]="'Flat'"
+      >Flat
     </label>
     <label>
-      <input class="uk-checkbox" type="checkbox">Dom
+      <input class="uk-checkbox" type="checkbox"
+             [formControlName]="'House'"
+      >House
     </label>
   </div>
   <button class="uk-button uk-button-link uk-button-large uk-align-right uk-margin-small">Zastosuj</button>

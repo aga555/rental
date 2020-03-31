@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
+import {FormBuilder, FormGroup} from '@angular/forms';
 
 @Component({
   selector: 'app-home-type-filter',
@@ -6,10 +7,20 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./home-type-filter.component.css']
 })
 export class HomeTypeFilterComponent implements OnInit {
+  form: FormGroup;
 
-  constructor() { }
-
-  ngOnInit() {
+  constructor(private formBuilder: FormBuilder) {
   }
 
+  ngOnInit() {
+    this.form = this.formBuilder.group({
+      Apartment: [],
+      Flat: [],
+      House: []
+    });
+  }
+
+  submit(formValue) {
+    console.log(formValue);
+  }
 }
