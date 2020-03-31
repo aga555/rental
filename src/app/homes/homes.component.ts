@@ -22,7 +22,7 @@ export class HomesComponent implements OnInit {
     this.route.queryParams.subscribe(params => {
       const homeTypesFilters = params['home-type'] || [];
       this.dataService.loadHomes(homeTypesFilters);
-      this.currentHomeTypeFilter=homeTypesFilters;
+      this.currentHomeTypeFilter = homeTypesFilters;
     });
   }
 
@@ -34,4 +34,14 @@ export class HomesComponent implements OnInit {
       }
     });
   }
+
+  searchAplied($event) {
+
+    this.router.navigate(['homes'], {
+      queryParams: {
+        search: $event
+      }
+    });
+  }
+
 }
