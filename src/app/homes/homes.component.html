@@ -1,6 +1,25 @@
 <div class="uk-container uk-padding">
   <h1>Nieruchomości</h1>
 
+  <!--filter buttons -->
+  <div class=" uk-flex  uk-grid-small uk-margin">
+    <div>
+      <button class="uk-button uk-button-default uk-button-small uk-text-nowrap">
+        typ nieruchomosci
+      </button>
+    </div>
+    <div>
+      <button class="uk-button uk-button-default uk-button-small uk-text-nowrap">
+        Data
+      </button>
+    </div>
+    <div>
+      <button class="uk-button uk-button-default uk-button-small uk-text-nowrap">
+        Goście
+      </button>
+    </div>
+  </div>
+  <!--Home list with loader -->
   <div *ngIf="(homes$ | async) as homes;else loading">
     <div class="uk-child-width-1-3@s" uk-grid>
       <div *ngFor="let home of homes">
