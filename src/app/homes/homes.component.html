@@ -5,13 +5,16 @@
   <div class=" uk-flex  uk-grid-small uk-margin">
     <div>
       <button
-        (click)=" homeTypeDropdownOpen =true"
+        (click)=" homeTypeDropdownOpen =!homeTypeDropdownOpen"
+        [ngClass]="{'uk-button-primary':currentHomeTypeFilter.length>0}"
         class="uk-button uk-button-default uk-button-small uk-text-nowrap">
         typ nieruchomosci
       </button>
       <div *ngIf="homeTypeDropdownOpen"
            class="uk-dropdown uk-open uk-width-medium">
-        <app-home-type-filter (applied)="homeTypeFilterAplied ($event)"></app-home-type-filter>
+        <app-home-type-filter
+          [defaultFilters]="currentHomeTypeFilter"
+          (applied)="homeTypeFilterAplied ($event)"></app-home-type-filter>
       </div>
     </div>
     <div>

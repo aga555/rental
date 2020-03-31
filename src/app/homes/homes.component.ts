@@ -9,6 +9,7 @@ import {ActivatedRoute, Router} from '@angular/router';
 })
 export class HomesComponent implements OnInit {
   homeTypeDropdownOpen = false;
+  currentHomeTypeFilter = [];
   homes$ = this.dataService.homes$;
 
   constructor(
@@ -21,6 +22,7 @@ export class HomesComponent implements OnInit {
     this.route.queryParams.subscribe(params => {
       const homeTypesFilters = params['home-type'] || [];
       this.dataService.loadHomes(homeTypesFilters);
+      this.currentHomeTypeFilter=homeTypesFilters;
     });
   }
 
