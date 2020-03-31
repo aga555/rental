@@ -4,9 +4,15 @@
   <!--filter buttons -->
   <div class=" uk-flex  uk-grid-small uk-margin">
     <div>
-      <button class="uk-button uk-button-default uk-button-small uk-text-nowrap">
+      <button
+        (click)=" homeTypeDropdownOpen =true"
+        class="uk-button uk-button-default uk-button-small uk-text-nowrap">
         typ nieruchomosci
       </button>
+      <div *ngIf="homeTypeDropdownOpen"
+        class="uk-dropdown uk-open uk-width-medium">
+        Dropdawn
+      </div>
     </div>
     <div>
       <button class="uk-button uk-button-default uk-button-small uk-text-nowrap">

@@ -7,7 +7,7 @@ import {DataService} from '../data.service';
   styleUrls: ['./homes.component.css']
 })
 export class HomesComponent implements OnInit {
-
+  homeTypeDropdownOpen = false;
   homes$ = this.dataService.getHomes();
 
   constructor(private dataService: DataService) {
