@@ -9,7 +9,7 @@ import {Router} from '@angular/router';
 })
 export class HomesComponent implements OnInit {
   homeTypeDropdownOpen = false;
-  homes$ = this.dataService.getHomes();
+  homes$ = this.dataService.homes$;
 
   constructor(
     private dataService: DataService,
@@ -17,6 +17,7 @@ export class HomesComponent implements OnInit {
   }
 
   ngOnInit() {
+    this.dataService.loadHomes();
   }
 
   homeTypeFilterAplied($event) {
