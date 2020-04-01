@@ -7,13 +7,15 @@ import {HttpClientModule} from '@angular/common/http';
 import { HomeTypeFilterComponent } from './home-type-filter/home-type-filter.component';
 import {ReactiveFormsModule} from '@angular/forms';
 import { HomeSearchComponent } from './home-search/home-search.component';
+import { HomeComponent } from './home/home.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     HomesComponent,
     HomeTypeFilterComponent,
-    HomeSearchComponent
+    HomeSearchComponent,
+    HomeComponent
   ],
   imports: [
     BrowserModule,

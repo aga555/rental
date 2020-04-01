@@ -19,7 +19,7 @@ export class HomeTypeFilterComponent implements OnInit {
     this.form = this.formBuilder.group({
       Apartment: [this.defaultFilters.includes('Apartment')],
       Flat: [this.defaultFilters.includes('Flat')],
-      House:[this.defaultFilters.includes('House')]
+      House: [this.defaultFilters.includes('House')]
     });
   }
 
