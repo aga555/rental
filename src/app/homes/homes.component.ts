@@ -29,6 +29,10 @@ export class HomesComponent implements OnInit {
     });
   }
 
+  onSelect(home) {
+    this.router.navigate(['/homes', home.id]);
+  }
+
   homeTypeFilterAplied($event) {
     this.homeTypeDropdownOpen = false;
     this.router.navigate(['homes'], {
