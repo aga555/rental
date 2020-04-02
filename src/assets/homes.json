@@ -55,4 +55,70 @@
     "title": "Mieszkanie dla rodziny - wysoki standard",
     "description": "orem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum. "
   }
+
+,
+  {
+    "id": 20,
+    "img": "../../assets/img/home20.jpg",
+    "type": "Flat",
+    "location": "Kraków",
+    "title": "Mieszkanie dla rodziny - wysoki standard",
+    "description": "orem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum. "
+  },
+  {
+    "id": 21,
+    "img": "../../assets/img/home21.jpg",
+    "type": "Flat",
+    "location": "Kraków",
+    "title": "Mieszkanie dla rodziny - wysoki standard",
+    "description": "orem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum. "
+  },
+  {
+    "id": 22,
+    "img": "../../assets/img/home22.jpg",
+    "type": "Flat",
+    "location": "Kraków",
+    "title": "Mieszkanie dla singla - wysoki standard",
+    "description": "orem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum. "
+  },
+  {
+    "id": 23,
+    "img": "../../assets/img/home23.jpg",
+    "type": "Flat",
+    "location": "Kraków",
+    "title": " Mieszkanie w centurm",
+    "description": "orem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum. "
+  },
+  {
+    "id": 24,
+    "img": "../../assets/img/home24.jpg",
+    "type": "Flat",
+    "location": "Kraków",
+    "title": "Mieszkanie - dobra komunikacja",
+    "description": "orem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum. "
+  },
+  {
+    "id": 25,
+    "img": "../../assets/img/home25.jpg",
+    "type": "Flat",
+    "location": "Kraków",
+    "title": "Mieszkanie dla rodziny - piękny widok",
+    "description": "orem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum. "
+  },
+  {
+    "id": 26,
+    "img": "../../assets/img/home26.jpg",
+    "type": "Flat",
+    "location": "Warszawa",
+    "title": "Mieszkanie w centrum m miasta",
+    "description": "orem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum. "
+  },
+  {
+    "id": 27,
+    "img": "../../assets/img/home27.jpg",
+    "type": "Flat",
+    "location": "Warszawa",
+    "title": "Mieszkanie dla rodziny - wysoki standard",
+    "description": "orem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum. "
+  }
 ]
