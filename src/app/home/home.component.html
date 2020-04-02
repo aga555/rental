@@ -1,9 +1,28 @@
-<div *ngIf="home$ | async as home">
-  <h3>"{{ home.title }}"</h3>
-  <div>
-    <label>Id: </label>{{ home.id }}</div>
-  opis {{home.description}}
-  <p>
-    <button (click)="gotoHomes(home)">Back</button>
-  </p>
+<div  class="uk-card " *ngIf="home$ | async as home">
+  <button class="uk-button uk-button-default uk-button-small" (click)="gotoHomes(home)">Back</button>
+  <h1 class="uk-heading-line uk-text-center"><span>{{ home.title }}</span></h1>
+
+
+  <div class="uk-card-media-top" >
+      <img src="{{home.img}}" alt="">
+    </div>
+    <div class="uk-card-body">
+      <div class="uk-text-muted uk-text-uppercase uk-text-small uk text-bold uk-text-truncate">
+        {{home.type}}/{{home.location}}
+      </div>
+      <div class="uk-text-bold">
+        {{home.title}}
+      </div>
+      <div class="uk-text-left@s">
+        {{home.description}}
+      </div>
+    </div>
+
+
+  <div class="uk-text-muted uk-text-uppercase uk-text-left@s ">
+    <label>Id: </label>{{ home.id }}
+  </div>
+
+
+
 </div>
