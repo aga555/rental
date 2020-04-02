@@ -26,6 +26,7 @@ export class HomesComponent implements OnInit {
       this.dataService.loadHomes(homeTypesFilters, searchString);
       this.currentHomeTypeFilter = homeTypesFilters;
       this.currentSearch = searchString;
+      console.table(homeTypesFilters);
     });
   }
 

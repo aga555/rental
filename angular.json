@@ -119,6 +119,10 @@
           }
         }
       }
-    }},
-  "defaultProject": "rental"
+    }
+  },
+  "defaultProject": "rental",
+  "cli": {
+    "analytics": "7ea4d5fe-a1cc-4ba9-a7dd-efaa5373a3a8"
+  }
 }

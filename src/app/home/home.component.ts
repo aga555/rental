@@ -12,7 +12,6 @@ import {Home} from '../home';
   styleUrls: ['./home.component.css']
 })
 export class HomeComponent implements OnInit {
-  public homeId;
   home$: Observable<Home>;
 
   constructor(private route: ActivatedRoute,
@@ -31,7 +30,7 @@ export class HomeComponent implements OnInit {
     // Pass along the hero id if available
     // so that the HeroList component can select that hero.
     // Include a junk 'foo' property for fun.
-    this.router.navigate(['/homes', { id: home, foo: 'foo' }]);
+    this.router.navigate(['/homes', { id: home, homes: 'homes' }]);
   }
 
 

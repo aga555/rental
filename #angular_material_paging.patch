@@ -1,0 +1,177 @@
+Index: src/app/home/home.component.html
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- src/app/home/home.component.html	(revision 4ab409714a860f1dbf3dba70b829f1553a3bb011)
++++ src/app/home/home.component.html	(date 1585837046287)
+@@ -26,3 +26,4 @@
+ 
+ 
+ </div>
++
+Index: src/app/app.component.html
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- src/app/app.component.html	(revision 4ab409714a860f1dbf3dba70b829f1553a3bb011)
++++ src/app/app.component.html	(date 1585837046297)
+@@ -1,1 +1,2 @@
+ <router-outlet></router-outlet>
++
+Index: src/app/homes/homes.component.ts
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- src/app/homes/homes.component.ts	(revision 4ab409714a860f1dbf3dba70b829f1553a3bb011)
++++ src/app/homes/homes.component.ts	(date 1585838616700)
+@@ -1,17 +1,22 @@
+-import {Component, OnInit} from '@angular/core';
++import {AfterViewInit, Component, OnInit, ViewChild} from '@angular/core';
+ import {DataService} from '../data.service';
+ import {ActivatedRoute, Router} from '@angular/router';
++import {MatPaginator} from '@angular/material/paginator';
+ 
+ @Component({
+   selector: 'app-homes',
+   templateUrl: './homes.component.html',
+   styleUrls: ['./homes.component.css']
+ })
+-export class HomesComponent implements OnInit {
++export class HomesComponent implements OnInit, AfterViewInit {
+   homeTypeDropdownOpen = false;
+   currentHomeTypeFilter = [];
+   currentSearch = '';
+   homes$ = this.dataService.homes$;
++  @ViewChild(MatPaginator) paginator: MatPaginator;
++  length = 1000;
++  pageSize = 10;
++  pageSizeOptions: number[] = [5, 10, 25, 100];
+ 
+   constructor(
+     private dataService: DataService,
+@@ -29,6 +34,13 @@
+     });
+   }
+ 
++  ngAfterViewInit() {
++    this.paginator.page.subscribe(
++      (event) => console.log(event)
++    );
++  }
++
++
+   onSelect(home) {
+     this.router.navigate(['/homes', home.id]);
+   }
+Index: src/app/app.module.ts
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- src/app/app.module.ts	(revision 4ab409714a860f1dbf3dba70b829f1553a3bb011)
++++ src/app/app.module.ts	(date 1585838386144)
+@@ -8,7 +8,8 @@
+ import {ReactiveFormsModule} from '@angular/forms';
+ import {HomeSearchComponent} from './home-search/home-search.component';
+ import {HomeComponent} from './home/home.component';
+-import {MatSliderModule} from '@angular/material/slider';
++import {MatPaginatorModule} from '@angular/material/paginator';
++import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
+ 
+ @NgModule({
+   declarations: [
+@@ -19,11 +20,12 @@
+     HomeComponent
+   ],
+   imports: [
+-    MatSliderModule,
+     BrowserModule,
+     AppRoutingModule,
+     HttpClientModule,
+-    ReactiveFormsModule
++    ReactiveFormsModule,
++    MatPaginatorModule,
++    BrowserAnimationsModule
+ 
+   ],
+   providers: [],
+Index: src/app/homes/homes.component.html
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- src/app/homes/homes.component.html	(revision 4ab409714a860f1dbf3dba70b829f1553a3bb011)
++++ src/app/homes/homes.component.html	(date 1585838167578)
+@@ -57,5 +57,8 @@
+       </div>
+     </div>
+   </div>
+-
++<mat-paginator    [length]="length"
++                  [pageSize]="pageSize"
++                  [pageSizeOptions]="pageSizeOptions"
++                  [showFirstLastButtons]="true" > </mat-paginator>
+ </div>
+Index: package.json
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- package.json	(revision 4ab409714a860f1dbf3dba70b829f1553a3bb011)
++++ package.json	(date 1585836420823)
+@@ -17,7 +17,7 @@
+     "@angular/compiler": "~9.1.0",
+     "@angular/core": "~9.1.0",
+     "@angular/forms": "~9.1.0",
+-    "@angular/material": "^8.2.3",
++    "@angular/material": "^9.2.0",
+     "@angular/platform-browser": "~9.1.0",
+     "@angular/platform-browser-dynamic": "~9.1.0",
+     "@angular/router": "~9.1.0",
+Index: package-lock.json
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- package-lock.json	(revision 4ab409714a860f1dbf3dba70b829f1553a3bb011)
++++ package-lock.json	(date 1585836421101)
+@@ -557,12 +557,9 @@
+       "dev": true
+     },
+     "@angular/material": {
+-      "version": "8.2.3",
+-      "resolved": "https://registry.npmjs.org/@angular/material/-/material-8.2.3.tgz",
+-      "integrity": "sha512-SOczkIaqes+r+9XF/UUiokidfFKBpHkOPIaFK857sFD0FBNPvPEpOr5oHKCG3feERRwAFqHS7Wo2ohVEWypb5A==",
+-      "requires": {
+-        "tslib": "^1.7.1"
+-      }
++      "version": "9.2.0",
++      "resolved": "https://registry.npmjs.org/@angular/material/-/material-9.2.0.tgz",
++      "integrity": "sha512-KKzEIVh6/m56m+Ao8p4PK0SyEr0574l3VP2swj1qPag3u+FYgemmXCGTaChrKdDsez+zeTCPXImBGXzE6NQ80Q=="
+     },
+     "@angular/platform-browser": {
+       "version": "9.1.0",
+Index: angular.json
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- angular.json	(revision 4ab409714a860f1dbf3dba70b829f1553a3bb011)
++++ angular.json	(date 1585836600324)
+@@ -119,6 +119,10 @@
+           }
+         }
+       }
+-    }},
+-  "defaultProject": "rental"
++    }
++  },
++  "defaultProject": "rental",
++  "cli": {
++    "analytics": "7ea4d5fe-a1cc-4ba9-a7dd-efaa5373a3a8"
++  }
+ }
+\ No newline at end of file
