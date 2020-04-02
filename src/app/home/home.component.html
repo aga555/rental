@@ -1,19 +1,9 @@
-<div class="uk-card">
-  <div class="uk-card-media-top">
-    <img src="{{home.img}}" alt="">
-  </div>
-
-  <div class="uk-card-body">
-    <div class="uk-text-muted uk-text-uppercase uk-text-small uk text-bold uk-text-truncate">
-      {{home.type}}/{{home.location}}
-    </div>
-    <div class="uk-text-bold">
-      {{home.title}}
-    </div>
-    <div class="uk-text-center"> Numer oferty {{home.id}} </div>
-    <div class="uk-text-left">
-      {{home.description}}
-    </div>
-
-  </div>
+<div *ngIf="home$ | async as home">
+  <h3>"{{ home.title }}"</h3>
+  <div>
+    <label>Id: </label>{{ home.id }}</div>
+  opis {{home.description}}
+  <p>
+    <button (click)="gotoHomes(home)">Back</button>
+  </p>
 </div>
