@@ -38,7 +38,6 @@ export class DataService {
 
   getHomes() {
     return this.httpClient.get<any[]>('assets/homes.json');
-    console.log(this.httpClient.get<any[]>('assets/homes.json'));
   }
 
   getHome(id: number | string) {
