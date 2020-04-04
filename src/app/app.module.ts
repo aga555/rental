@@ -9,6 +9,10 @@ import {ReactiveFormsModule} from '@angular/forms';
 import {HomeSearchComponent} from './home-search/home-search.component';
 import {HomeComponent} from './home/home.component';
 import {MatSliderModule} from '@angular/material/slider';
+import {MatTableModule} from '@angular/material/table';
+import {MatPaginatorModule} from '@angular/material/paginator';
+import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
+import {CdkTableModule} from '@angular/cdk/table';
 
 @NgModule({
   declarations: [
@@ -23,7 +27,13 @@ import {MatSliderModule} from '@angular/material/slider';
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    MatTableModule,
+    MatPaginatorModule,
+    MatTableModule,
+    MatPaginatorModule,
+    BrowserAnimationsModule,
+    CdkTableModule
 
   ],
   providers: [],

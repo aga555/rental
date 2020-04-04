@@ -1,62 +1,79 @@
 <div class="uk-container uk-padding">
-  <h1>Nieruchomości</h1>
+  <h1>Homes</h1>
 
-  <!--filter buttons -->
-  <div class=" uk-flex  uk-grid-small uk-margin">
+  <!-- Filter buttons -->
+  <div class="uk-flex uk-grid-small uk-margin">
     <div>
       <button
-        (click)=" homeTypeDropdownOpen =!homeTypeDropdownOpen"
-        [ngClass]="{'uk-button-primary':currentHomeTypeFilter.length>0}"
+        (click)="homeTypeDropdownOpen = !homeTypeDropdownOpen"
+        [ngClass]="{ 'uk-button-primary': currentHomeTypeFilters.length > 0 }"
         class="uk-button uk-button-default uk-button-small uk-text-nowrap">
-        typ nieruchomosci
+        Home type
       </button>
       <div *ngIf="homeTypeDropdownOpen"
            class="uk-dropdown uk-open uk-width-medium">
         <app-home-type-filter
-          [defaultFilters]="currentHomeTypeFilter"
-          (applied)="homeTypeFilterAplied ($event)"></app-home-type-filter>
+          [defaultFilters]="currentHomeTypeFilters"
+          (applied)="homeTypeFilterApplied($event)">
+        </app-home-type-filter>
       </div>
     </div>
-
     <div>
-      <button class="uk-button uk-button-default uk-button-small uk-text-nowrap">
-        Data
+      <button
+        class="uk-button uk-button-default uk-button-small uk-text-nowrap">
+        Dates
       </button>
     </div>
     <div>
-      <button class="uk-button uk-button-default uk-button-small uk-text-nowrap">
-        Goście
+      <button
+        class="uk-button uk-button-default uk-button-small uk-text-nowrap">
+        Guests
       </button>
     </div>
   </div>
-  <app-home-search
-    [defaultSearch]="currentSearch"
-    (applied)="searchAplied ($event)"></app-home-search>
-  <!--Home list with loader -->
+
+  <app-home-search [defaultSearch]="currentSearch"
+                   (applied)="searchApplied($event)">
+  </app-home-search>
+
+  <!-- Home list with loader -->
   <div *ngIf="(homes$ | async) as homes">
-    <ng-container *ngIf="!homes.loading && homes.data.length===0">
-      <div  class="uk-align-center uk-text-center"> Brak wyników wyszukiwania </div>
-    </ng-container>
+
     <ng-container *ngIf="homes.loading">
-      <div uk-spinner="ratio:3" class="uk-align-center uk-text-center"></div>
+      <div uk-spinner="ratio: 3"
+           class="uk-align-center uk-text-center"></div>
     </ng-container>
-    <div class="uk-child-width-1-3@s" uk-grid>
-      <div (click)="onSelect(home)" *ngFor="let home of homes.data">
+
+    <ng-container
+      *ngIf="!homes.loading && homes.data.length === 0">
+      <div class="uk-align-center uk-text-center">No homes
+        found.</div>
+    </ng-container>
+
+  </div>
+
+  <table mat-table [dataSource]="matData">
+    <ng-container matColumnDef="title">
+      <td
+        (click)="onSelect(home)"
+        mat-cell *matCellDef="let home">
         <div class="uk-card">
           <div class="uk-card-media-top">
             <img src="{{home.img}}" alt="">
           </div>
-          <div class="uk-card-body">
-            <div class="uk-text-muted uk-text-uppercase uk-text-small uk text-bold uk-text-truncate">
-              {{home.type}}/{{home.location}}
+          <div class="uk-card-body uk-padding-remove">
+            <div class="uk-text-muted uk-text-uppercase uk-text-small uk-text-bold uk-text-truncate">
+              {{ home.type }} / {{ home.location }}
             </div>
             <div class="uk-text-bold">
-              {{home.title}}
+              {{ home.title }}
             </div>
           </div>
         </div>
-      </div>
-    </div>
-  </div>
+      </td>
+    </ng-container>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+  </table>
+  <mat-paginator [pageSizeOptions]="[5, 8]" showFirstLastButtons></mat-paginator>
 
 </div>

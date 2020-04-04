@@ -1,0 +1,102 @@
+Index: src/app/homes/homes.component.ts
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- src/app/homes/homes.component.ts	(revision e1d3fabed3f5b664bddc1112697e3e8151348086)
++++ src/app/homes/homes.component.ts	(date 1586022711293)
+@@ -20,13 +20,13 @@
+   }
+ 
+   ngOnInit() {
++    this.dataSource.paginator = this.paginator;
+     this.route.queryParams.subscribe(params => {
+       const homeTypesFilters = params['home-type'] || [];
+       const searchString = params.search || '';
+       this.dataService.loadHomes(homeTypesFilters, searchString);
+       this.currentHomeTypeFilter = homeTypesFilters;
+       this.currentSearch = searchString;
+-
+     });
+ 
+   }
+@@ -44,6 +44,24 @@
+     });
+   }
+ 
++  getPaginatorData(event) {
++    console.log(event);
++    if (event.pageIndex === this.pageIndex + 1) {
++      this.lowValue = this.lowValue + this.pageSize;
++      this.highValue = this.highValue + this.pageSize;
++    } else if (event.pageIndex === this.pageIndex - 1) {
++      this.lowValue = this.lowValue - this.pageSize;
++      this.highValue = this.highValue - this.pageSize;
++    }
++    this.pageIndex = event.pageIndex;
++  }
++
++  setPageSizeOptions(setPageSizeOptionsInput: string) {
++    if (setPageSizeOptionsInput) {
++      this.pageSizeOptions = setPageSizeOptionsInput.split(',').map(str => +str);
++    }
++  }
++
+   searchAplied($event) {
+ 
+     this.router.navigate(['homes'], {
+Index: src/app/home-type-filter/home-type-filter.component.ts
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- src/app/home-type-filter/home-type-filter.component.ts	(revision e1d3fabed3f5b664bddc1112697e3e8151348086)
++++ src/app/home-type-filter/home-type-filter.component.ts	(date 1586020297117)
+@@ -15,7 +15,6 @@
+   }
+ 
+   ngOnInit() {
+-    console.log(this.defaultFilters);
+     this.form = this.formBuilder.group({
+       Apartment: [this.defaultFilters.includes('Apartment')],
+       Flat: [this.defaultFilters.includes('Flat')],
+@@ -24,7 +23,6 @@
+   }
+ 
+   submit(formValue) {
+-    console.log(formValue);
+     const homeTypes = Object.keys(formValue).filter(item => formValue[item]);
+     this.applied.emit(homeTypes);
+   }
+Index: src/app/homes/homes.component.html
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- src/app/homes/homes.component.html	(revision e1d3fabed3f5b664bddc1112697e3e8151348086)
++++ src/app/homes/homes.component.html	(date 1586022677933)
+@@ -41,7 +41,10 @@
+       <div uk-spinner="ratio:3" class="uk-align-center uk-text-center"></div>
+     </ng-container>
+     <div class="uk-child-width-1-3@s" uk-grid>
+-      <div (click)="onSelect(home)" *ngFor="let home of homes.data">
++      <div (click)="onSelect(home)" *ngFor="let home of homes.data |
++     slice: lowValue : highValue">
++
++
+         <div class="uk-card">
+           <div class="uk-card-media-top">
+             <img src="{{home.img}}" alt="">
+@@ -57,6 +60,12 @@
+         </div>
+       </div>
+     </div>
++    <mat-paginator [length]="homes.data.length" [pageSize]="pageSize" [pageSizeOptions]="pageSizeOptions"
++                   (page)="getPaginatorData($event)">
++    </mat-paginator>
++
+   </div>
+ 
++
++
+ </div>

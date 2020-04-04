@@ -1,32 +1,44 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, OnInit, ViewChild} from '@angular/core';
 import {DataService} from '../data.service';
-import {ActivatedRoute, Router} from '@angular/router';
+import {Router, ActivatedRoute} from '@angular/router';
+import {MatTableDataSource} from '@angular/material/table';
+import {MatPaginator} from '@angular/material/paginator';
 
 @Component({
   selector: 'app-homes',
-  templateUrl: './homes.component.html',
-  styleUrls: ['./homes.component.css']
+  templateUrl: './homes.component.html'
 })
 export class HomesComponent implements OnInit {
+
   homeTypeDropdownOpen = false;
-  currentHomeTypeFilter = [];
+  currentHomeTypeFilters = [];
   currentSearch = '';
   homes$ = this.dataService.homes$;
+  matData = new MatTableDataSource<any>([]);
+  displayedColumns = ['title'];
+
+  @ViewChild(MatPaginator, {static: true}) paginator: MatPaginator;
 
   constructor(
     private dataService: DataService,
     private router: Router,
-    private route: ActivatedRoute) {
+    private route: ActivatedRoute
+  ) {
   }
 
   ngOnInit() {
-    this.route.queryParams.subscribe(params => {
-      const homeTypesFilters = params['home-type'] || [];
-      const searchString = params.search || '';
-      this.dataService.loadHomes(homeTypesFilters, searchString);
-      this.currentHomeTypeFilter = homeTypesFilters;
-      this.currentSearch = searchString;
 
+    this.route.queryParams.subscribe(params => {
+      const homeTypeFilters = params['home-type'] || [];
+      const searchString = params.search || '';
+      this.dataService.loadHomes(homeTypeFilters, searchString);
+      this.currentHomeTypeFilters = homeTypeFilters;
+      this.currentSearch = searchString;
+    });
+
+    this.homes$.subscribe(homes => {
+      this.matData = new MatTableDataSource<any>(homes.data);
+      this.matData.paginator = this.paginator;
     });
 
   }
@@ -34,23 +46,23 @@ export class HomesComponent implements OnInit {
   onSelect(home) {
     this.router.navigate(['/homes', home.id]);
   }
-
-  homeTypeFilterAplied($event) {
+  homeTypeFilterApplied($event) {
     this.homeTypeDropdownOpen = false;
-    this.router.navigate(['homes'], {
-      queryParams: {
-        'home-type': $event
-      }
-    });
+
+    const params = this.route.snapshot.queryParams;
+    const homeType = {'home-type': $event};
+
+    this.router.navigate(['homes'], {queryParams: {...params, ...homeType}});
+
   }
 
-  searchAplied($event) {
+  searchApplied($event) {
 
-    this.router.navigate(['homes'], {
-      queryParams: {
-        search: $event
-      }
-    });
+    const params = this.route.snapshot.queryParams;
+    const search = {search: $event};
+
+    this.router.navigate(['homes'], {queryParams: {...params, ...search}});
+
   }
 
 }
