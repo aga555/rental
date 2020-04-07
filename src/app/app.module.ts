@@ -13,6 +13,7 @@ import {MatTableModule} from '@angular/material/table';
 import {MatPaginatorModule} from '@angular/material/paginator';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {CdkTableModule} from '@angular/cdk/table';
+import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
 
 @NgModule({
   declarations: [
@@ -33,7 +34,8 @@ import {CdkTableModule} from '@angular/cdk/table';
     MatTableModule,
     MatPaginatorModule,
     BrowserAnimationsModule,
-    CdkTableModule
+    CdkTableModule,
+    MatProgressSpinnerModule
 
   ],
   providers: [],

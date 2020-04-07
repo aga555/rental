@@ -1,6 +1,6 @@
 <div class="uk-container uk-padding">
   <h1>Homes</h1>
-
+  <mat-spinner></mat-spinner>
   <!-- Filter buttons -->
   <div class="uk-flex uk-grid-small uk-margin">
     <div>
@@ -40,8 +40,7 @@
   <div *ngIf="(homes$ | async) as homes">
 
     <ng-container *ngIf="homes.loading">
-      <div uk-spinner="ratio: 3"
-           class="uk-align-center uk-text-center"></div>
+      <mat-spinner></mat-spinner>
     </ng-container>
 
     <ng-container
